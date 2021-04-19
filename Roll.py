@@ -39,16 +39,18 @@ class Roll:
                 print('FEEEL. Kan inte tolka din input som ett tal')
 
     def second_roll(self):
-        pass
+        rolled = [random.randint(1, 6) for _ in range(len(self.active_dices))]
+        self.active_dices = rolled
 
-    def get_current_dice(self):
-        pass
+    def get_current_dice_list(self):
+        return self.active_dices
 
-    def get_kept_dice(self):
-        pass
+    def get_kept_dice_list(self):
+        return self.kept_dices
 
-    def third_roll(self, dice_list):
-        pass
+    def third_roll(self):
+        rolled = [random.randint(1, 6) for _ in range(len(self.active_dices))]
+        self.kept_dices.extend(rolled)
 
     def check_first_part_score(self, dice_list, value):
         score = sum(map(lambda x: x == value, dice_list))
@@ -113,3 +115,9 @@ class Roll:
 roller = Roll()
 roller.first_roll()
 roller.keep_dices()
+roller.second_roll()
+print(f'Nuvarande aktiva tärningar: {roller.get_current_dice_list()}')
+print(f'Nuvarande sparade tärningar: {roller.get_kept_dice_list()}')
+roller.keep_dices()
+roller.third_roll()
+print(f'Nuvarande sparade tärningar: {roller.get_kept_dice_list()}')
