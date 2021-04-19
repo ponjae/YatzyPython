@@ -112,12 +112,12 @@ class Roll:
         return False
 
 
-roller = Roll()
-roller.first_roll()
-roller.keep_dices()
-roller.second_roll()
-print(f'Nuvarande aktiva tärningar: {roller.get_current_dice_list()}')
-print(f'Nuvarande sparade tärningar: {roller.get_kept_dice_list()}')
-roller.keep_dices()
-roller.third_roll()
-print(f'Nuvarande sparade tärningar: {roller.get_kept_dice_list()}')
+# roller = Roll()
+# roller.first_roll()
+# roller.keep_dices()
+# roller.second_roll()
+# print(f'Nuvarande aktiva tärningar: {roller.get_current_dice_list()}')
+# print(f'Nuvarande sparade tärningar: {roller.get_kept_dice_list()}')
+# roller.keep_dices()
+# roller.third_roll()
+# print(f'Nuvarande sparade tärningar: {roller.get_kept_dice_list()}')
