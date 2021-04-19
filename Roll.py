@@ -1,6 +1,13 @@
+from functools import reduce
+
+
 class Roll:
     def __init__(self):
         pass
+
+    def check_first_part_score(self, dice_list, value):
+        score = sum(map(lambda x: x == value, dice_list))
+        return score
 
     def check_one_pair(self, dice_list):
         for item in dice_list:
@@ -56,3 +63,8 @@ class Roll:
         if len(set(dice_list)) == 1:
             return True
         return False
+
+
+roller = Roll()
+
+print(roller.check_first_part_score([1, 1, 2, 1, 1], 3))
