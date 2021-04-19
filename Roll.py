@@ -6,6 +6,25 @@ class Roll:
     def __init__(self):
         self.active_dices = []
         self.kept_dices = []
+        self.dictionary = {}
+        self.game_setup()
+
+    def game_setup(self):
+        self.dictionary['1'] = self.check_first_part_score
+        self.dictionary['2'] = self.check_first_part_score
+        self.dictionary['3'] = self.check_first_part_score
+        self.dictionary['4'] = self.check_first_part_score
+        self.dictionary['5'] = self.check_first_part_score
+        self.dictionary['6'] = self.check_first_part_score
+        self.dictionary['7'] = self.check_one_pair
+        self.dictionary['8'] = self.check_two_pair
+        self.dictionary['9'] = self.check_three_kind
+        self.dictionary['10'] = self.check_four_kind
+        self.dictionary['11'] = self.check_full_house
+        self.dictionary['12'] = self.check_low_straight
+        self.dictionary['13'] = self.check_high_straight
+        self.dictionary['14'] = self.add_chance
+        self.dictionary['15'] = self.check_yatzy
 
     def first_roll(self):
         self.kept_dices.clear()
