@@ -1,11 +1,13 @@
 class Player:
-    def __init__(self, name):
+    def __init__(self, name, verifier, roller):
         self.name = name
         self.scoreboard = {}
         self.fpart_score = 0
         self.lpart_score = 0
         self.bonus_score = 0
         self.total_score = 0
+        self.verifier = verifier
+        self.roller = roller
 
     def add_session_score(self, score_type, points):
         self.scoreboard[score_type] = points
@@ -29,3 +31,9 @@ class Player:
             print(f'{key} : {value}')
             total_score += value
         print(f'Total poäng: {total_score}')
+
+    def get_verifier(self):
+        return self.verifier
+
+    def get_roller(self):
+        return self.roller

@@ -70,6 +70,7 @@ class Roll:
     def third_roll(self):
         rolled = [random.randint(1, 6) for _ in range(len(self.active_dices))]
         self.kept_dices.extend(rolled)
+        print(f'Dina tärningar är: {self.get_kept_dice_list()}')
 
     def check_first_part_score(self, dice_list, value):
         score = sum(map(lambda x: x == value, dice_list))
@@ -129,6 +130,9 @@ class Roll:
         if len(set(dice_list)) == 1:
             return True
         return False
+
+    def get_methods(self):
+        return self.dictionary
 
 
 # roller = Roll()
