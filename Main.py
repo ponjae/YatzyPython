@@ -23,6 +23,8 @@ def main():
 
     while len(plays_list) > 0:
         for p in playerList:
+            print('*' * 50)
+            print('Din tur att slå ' + p.get_name())
             roller = p.get_roller()
             verifier = p.get_verifier()
             roller.first_roll()

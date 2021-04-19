@@ -37,3 +37,6 @@ class Player:
 
     def get_roller(self):
         return self.roller
+
+    def get_name(self):
+        return self.name
