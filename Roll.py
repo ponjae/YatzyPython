@@ -1,8 +1,53 @@
 from functools import reduce
+import random
 
 
 class Roll:
     def __init__(self):
+        self.active_dices = []
+        self.kept_dices = []
+
+    def first_roll(self):
+        self.kept_dices.clear()
+        rolled = [random.randint(1, 6) for _ in range(5)]
+        self.active_dices = rolled
+
+    def keep_dices(self):
+        print(
+            f'Ditt senaste slag: [{", ".join(str(x) for x in self.active_dices)}]')
+        choice = input(
+            'Vilka tärningar vill du behålla (kommaseparerad: ex 1,2,5)? ')
+        split = choice.split(',')
+        print(split)
+
+        if split[0] == '':
+            reassurence = input('Du vill alltså inte behålla någon (ja/nej)?')
+            if reassurence[0].lower() == 'n':
+                self.keep_dices()
+
+        else:
+            try:
+                int_list = [int(item) for item in split]
+                for die in int_list:
+                    if die in self.active_dices:
+                        self.kept_dices.append(die)
+                        self.active_dices.remove(die)
+                    else:
+                        print(
+                            f'Kan inte behålla tärningen med värdet {die} eftersom du inte har slagit den')
+            except ValueError:
+                print('FEEEL. Kan inte tolka din input som ett tal')
+
+    def second_roll(self):
+        pass
+
+    def get_current_dice(self):
+        pass
+
+    def get_kept_dice(self):
+        pass
+
+    def third_roll(self, dice_list):
         pass
 
     def check_first_part_score(self, dice_list, value):
@@ -66,5 +111,5 @@ class Roll:
 
 
 roller = Roll()
-
-print(roller.check_first_part_score([1, 1, 2, 1, 1], 3))
+roller.first_roll()
+roller.keep_dices()
